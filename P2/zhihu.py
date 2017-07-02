@@ -51,7 +51,7 @@ while offset < 100:#测试爬取偏移量最大为100的所有回答
             #因为url的首尾包含两个斜杠以及单引号，所以在此处删除
             urlStr = img['src']
             urlStr = urlStr[2:-2]
-            res=urllib.request.urlopen(urlStr)
+            res = urllib.request.urlopen(urlStr)
         except Exception as e:
             #print('未下载成功：',urlStr,e)
             continue

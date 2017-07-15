@@ -1,12 +1,14 @@
 a{
   text-decoration:none;
 }
+body{
+  margin: auto;
+}
 .main{
   background-image: url(imgs/main.png);
   background-color: #F7FAFC;
   width: 100%;
-  height: 640px;;
-  margin-top: -10px;
+  height: 640px;
 }
 .header{
   font-family: "华文细黑";
@@ -14,7 +16,7 @@ a{
 }
 .body{
   margin: auto;
-  width: 320px;;
+  width: 320px;
   position: relative;
   top: 30px;
 }
@@ -51,7 +53,7 @@ a{
   opacity: 0.6;
   font-size: 15px;
   height: 40px;
-  width: 296px;
+  width: 296px;;
 }
 .button{
   background-color: #0f88eb;

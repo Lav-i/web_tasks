@@ -86,6 +86,7 @@ body{
   color: #666666;
 }
 #pws{
+  margin: 2px;
   opacity: 0.6;
   font-size: 15px;
   height: 40px;
@@ -101,7 +102,7 @@ body{
   height: 43px;
   width: 33px;
   position:absolute;
-  top: 1px;
+  top: 3px;
   right: 11px;;
 }
 #signin{

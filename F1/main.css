@@ -1,0 +1,186 @@
+a{
+  text-decoration:none;
+}
+body{
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+.container-fluid{
+  background-image: url(imgs/main.png);
+  background-color: #F7FAFC;
+  margin: 0px;
+  height: 760px;
+}
+.header{
+  font-family: "华文细黑";
+  text-align: center;
+}
+.body{
+  margin: auto;
+  width: 320px;
+  position: relative;
+  top: 100px;
+  padding: 10px;
+}
+.sign{
+  text-align: center;
+}
+.navs{
+  height: 50px;
+  width: auto;
+  vertical-align: middle;
+  margin: 10px;
+  text-align: center;
+}
+.navsbutton{
+  background-color: #F7FAFC;
+  opacity: 0.8;
+  border: 0;
+  color: #0f88eb;
+  text-align: center;
+  font-size: 18px;
+  height: 40px;
+  width: 100px;
+}
+.tittle{
+  font-size: 80px;
+  margin: 0;
+  color: #0f88eb;
+}
+.subtitle{
+  color: #494d50;
+  font-size: 20px;
+}
+.inputs{
+  text-align: center;
+}
+.input{
+  margin: 2px;
+  opacity: 0.6;
+  font-size: 15px;
+  height: 44px;
+  width: 296px;
+  background-color: #F7FAFC;
+  border: 0;
+  border-bottom: 2px solid #cccccc;
+
+  transition: 0.5s;
+  -webkit-transition: 0.5s; /* Safari */
+  -moz-transition: 0.5s;	/* Firefox 4 */
+  -o-transition: 0.5s;	/* Opera */
+}
+.input:focus{
+  outline: none;
+  border-bottom: 2px solid #0f88eb;
+  height: 60px;
+  font-size: 20px;
+}
+.button{
+  background-color: #0f88eb;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  height: 40px;
+  width: 300px;
+
+  animation:buttonShake 5s infinite;
+  animation-delay: 2s;
+	/*Safari 和 Chrome*/
+	-webkit-animation:buttonShake 5s infinite;
+  animation-delay: 2s;
+  /*Firefox4*/
+  -moz-animation:buttonShake 5s infinite;
+  -moz-animation-delay: 2s
+  /* Opera */
+  -o-animation:buttonShake 5s infinite;
+  -o-animation-delay: 2s
+}
+.button:focus{
+  outline: none;
+  border-bottom: 2px solid #0f88eb;
+}
+.remember{
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.forget{
+  float: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.agreement{
+  margin-top: 20px;
+  font-size: 15px;
+  color: #666666;
+}
+.pwsButton{
+  float: right;
+  background-image: url(imgs/pws.png);
+  background-color: #F7FAFC;
+  border: none;
+  outline: none;
+  opacity: 0.5;
+  height: 42px;
+  width: 33px;
+  position:absolute;
+  top: 3px;
+  right: 3px;
+}
+#signin{
+  display: block;
+}
+#signup{
+  display: none;
+}
+@keyframes buttonShake{
+  0% {transform: rotate(0deg);}
+  45% {transform: rotate(0deg);}
+  50% {transform: rotate(3deg);}
+  55% {transform: rotate(-6deg);}
+  60% {transform: rotate(6deg);}
+  65% {transform: rotate(-6deg);}
+  70% {transform: rotate(3deg);}
+  75% {transform: rotate(0deg);}
+  100% {transform: rotate(0deg);}
+}
+/* Safari 与 Chrome */
+@-webkit-keyframes buttonShake{
+  0% {transform: rotate(0deg);}
+  45% {transform: rotate(0deg);}
+  50% {transform: rotate(3deg);}
+  55% {transform: rotate(-6deg);}
+  60% {transform: rotate(6deg);}
+  65% {transform: rotate(-6deg);}
+  70% {transform: rotate(3deg);}
+  75% {transform: rotate(0deg);}
+  100% {transform: rotate(0deg);}
+}
+/*Firefox4*/
+@-moz-keyframes buttonShake{
+  0% {transform: rotate(0deg);}
+  45% {transform: rotate(0deg);}
+  50% {transform: rotate(3deg);}
+  55% {transform: rotate(-6deg);}
+  60% {transform: rotate(6deg);}
+  65% {transform: rotate(-6deg);}
+  70% {transform: rotate(3deg);}
+  75% {transform: rotate(0deg);}
+  100% {transform: rotate(0deg);}
+}
+/* Opera */
+@-o-keyframes buttonShake{
+  0% {transform: rotate(0deg);}
+  45% {transform: rotate(0deg);}
+  50% {transform: rotate(3deg);}
+  55% {transform: rotate(-6deg);}
+  60% {transform: rotate(6deg);}
+  65% {transform: rotate(-6deg);}
+  70% {transform: rotate(3deg);}
+  75% {transform: rotate(0deg);}
+  100% {transform: rotate(0deg);}
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <title>学生信息管理系统</title>
+  <link rel="stylesheet" type="text/css" href="stuInfoManag.css" />
+  <script src="stuInfoManag.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">学生信息管理系统</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#">主页</a></li>
+          <li><a href="#" onclick="addShow()">增</a></li>
+          <li><a href="#" onclick="delShow()">删</a></li>
+          <li><a href="#" onclick="searchShow()">查</a></li>
+          <li><a href="#" onclick="editShow()">改</a></li>
+          <li><a href="#" onclick="saveShow()">存</a></li>
+        </ul>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-1">
+      </div>
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <div class="welcome">
+          <strong class="text-center">←功能区在看这里</strong>
+        </div>
+        <div class="add">
+          <form role="form">
+            <div class="form-group">
+              <label for="aName">姓名</label>
+              <input type="text" class="form-control" id="aName" placeholder="请输入姓名">
+            </div>
+            <div class="form-group">
+              <label for="aSex">性别</label>
+              <form>
+                <input type="radio" name="sex" id="aSex" value="男">男
+                <input type="radio" name="sex" id="aSex" value="女">女
+              </form>
+            </div>
+            <div class="form-group">
+              <label for="aId">学号</label>
+              <input type="number" class="form-control" id="aId" placeholder="请输入学号">
+            </div>
+            <div class="form-group">
+              <label for="aGrade">年级</label>
+              <select class="form-group" id="aGrade">
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="aSubject">专业</label>
+              <input type="text" class="form-control" id="aSubject" placeholder="请输入专业">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" onclick="addHandler()">提交</button>
+            </div>
+          </form>
+        </div>
+        <div class="del">
+          <form role="form">
+            <div class="form-group">
+              <label for="dId">输入学号以删除</label>
+              <input type="text" class="form-control" id="dId" placeholder="请输入学号">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="delHandler()">删除</button>
+          </form>
+        </div>
+        <div class="search">
+          <form role="form">
+            <div class="form-group">
+              <label for="sId">学号</label>
+              <input type="text" class="form-control" id="sId" placeholder="请输入学号">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="search()">查找</button>
+          </form>
+          <table class="table">
+            <caption>学生信息表格</caption>
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学号</th>
+                <th>年级</th>
+                <th>专业</th>
+              </tr>
+            </thead>
+            <tbody id="searchOutput">
+
+            </tbody>
+          </table>
+        </div>
+        <div class="edit">
+          <form role="form">
+            <div class="form-group">
+              <label for="eId">学号</label>
+              <input type="text" class="form-control" id="eId" placeholder="请输入学号">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="eShow()">查找</button>
+          </form>
+          <div class="editForm" style="display: none">
+            <form role="form">
+              <div class="form-group">
+                <label for="eName">姓名</label>
+                <input type="text" class="form-control" id="eName" placeholder="请输入姓名">
+              </div>
+              <div class="form-group">
+                <label for="eSex">性别</label>
+                <form>
+                  <input type="radio" name="sex" id="eSex" value="男">男
+                  <input type="radio" name="sex" id="eSex" value="女">女
+                </form>
+              </div>
+              <div class="form-group">
+                <label for="eGrade">年级</label>
+                <select class="form-group" id="eGrade">
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label for="eSubject">专业</label>
+                <input type="text" class="form-control" id="eSubject" placeholder="请输入专业">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" onclick="editHandler()">修改</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="save">
+          <table class="table">
+            <caption>学生信息表格</caption>
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学号</th>
+                <th>年级</th>
+                <th>专业</th>
+              </tr>
+            </thead>
+            <tbody id="saveOutput">
+            </tbody>
+          </table>
+          <form role="form">
+            <button type="submit" class="btn btn-primary" onclick="localSave()">刷新并保存</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

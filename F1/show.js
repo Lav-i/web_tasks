@@ -1,9 +1,8 @@
-function passwordShow(){
+function passwordShow() {
   var temp = document.getElementById('pws');
-  if(temp.type == "password"){
+  if (temp.type == "password") {
     temp.type = "text";
-  }
-  else {
+  } else {
     temp.type = "password";
   }
 }

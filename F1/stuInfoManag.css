@@ -1,0 +1,15 @@
+.form-control {
+  width: 70%;
+}
+
+.add, .del, .search, .edit, .save {
+  display: none;
+}
+
+.row {
+  margin-top: 40px;
+}
+
+body {
+  background-color: #F7FAFC;
+}

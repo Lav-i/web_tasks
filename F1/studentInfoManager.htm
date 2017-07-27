@@ -6,11 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <title>学生信息管理系统</title>
   <link rel="stylesheet" type="text/css" href="stuInfoManag.css" />
-  <script src="stuInfoManag.js"></script>
 
 </head>
 
@@ -27,7 +24,7 @@
           <li><a href="#" onclick="delShow()">删</a></li>
           <li><a href="#" onclick="searchShow()">查</a></li>
           <li><a href="#" onclick="editShow()">改</a></li>
-          <li><a href="#" onclick="saveShow()">存</a></li>
+          <li><a href="#" onclick="saveShow()">示</a></li>
         </ul>
       </div>
       <div class="col-md-1 col-sm-1 col-xs-1">
@@ -44,10 +41,10 @@
             </div>
             <div class="form-group">
               <label for="aSex">性别</label>
-              <form>
-                <input type="radio" name="sex" id="aSex" value="男">男
-                <input type="radio" name="sex" id="aSex" value="女">女
-              </form>
+              <select class="form-group" id="aSex">
+              <option value="男">男</option>
+              <option value="女">女</option>
+            </select>
             </div>
             <div class="form-group">
               <label for="aId">学号</label>
@@ -120,10 +117,10 @@
               </div>
               <div class="form-group">
                 <label for="eSex">性别</label>
-                <form>
-                  <input type="radio" name="sex" id="eSex" value="男">男
-                  <input type="radio" name="sex" id="eSex" value="女">女
-                </form>
+                <select class="form-group" id="eSex">
+                <option value="男">男</option>
+                <option value="女">女</option>
+              </select>
               </div>
               <div class="form-group">
                 <label for="eGrade">年级</label>
@@ -157,15 +154,20 @@
               </tr>
             </thead>
             <tbody id="saveOutput">
+
             </tbody>
           </table>
           <form role="form">
-            <button type="submit" class="btn btn-primary" onclick="localSave()">刷新并保存</button>
+            <button type="submit" class="btn btn-primary" onclick="showAll()">刷新</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="stuInfoManag.js"></script>
 
 </body>
 

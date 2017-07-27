@@ -1,15 +1,23 @@
-var data = new Array();
 var storage = window.localStorage;
+var vAdd = $(".add");
+var vDel = $(".del");
+var vSearch = $(".search");
+var vEdit = $(".edit");
+var vSave = $(".save");
 
 function  student(name, sex, id, grade, subject) {       
-  this.name  = name ? name : null;
-  this.sex =  sex ? sex : null;
-  this.id = id ? id : null;
-  this.grade =  grade ? grade  :  null;
-  this.subject =  subject ? subject  :  null;
+  this.name = name || null;
+  this.sex =  sex || null;
+  this.id = id || null;
+  this.grade =  grade ||  null;
+  this.subject =  subject || null;
 }
 
 function addHandler() {
+  var data = JSON.parse(storage.getItem("stuSys"));
+  if (data == null) {
+    data = new Array();
+  }
   var stu = new student();
   stu.name = $("#aName").val().trim();
   stu.sex =  $("#aSex").val().trim();
@@ -17,7 +25,8 @@ function addHandler() {
   stu.grade =  $("#aGrade").val().trim();
   stu.subject =  $("#aSubject").val().trim();
   if (valid(stu)) {
-    data.push(stu); 
+    data[stu.id] = stu;
+    storage["stuSys"] = JSON.stringify(data);
     alert("提交成功");
   }
 }
@@ -35,46 +44,32 @@ function valid(student) {
 }
 
 function search() {
-  if (data.length == 0) {
+  var id = $("#sId").val().trim();
+  var stu = JSON.parse(storage.getItem("stuSys"))[id];
+  if (stu == null) {
     alert("查无此人");
     $("#searchOutput").html("");
   } else {
-    var id = $("#sId").val().trim();
-    for (var i = 0; i < data.length; i++) {
-      if (id == data[i].id) {
-        $("#searchOutput").html("<tr><td>" + data[i].name + "</td><td>" + data[i].sex + "</td><td>" + data[i].id + "</td><td>" + data[i].grade + "</td><td>" + data[i].subject + "</td></tr>");
-      } else {
-        alert("查无此人");
-        $("#searchOutput").html("");
-      }
-    }
+    $("#searchOutput").html("<tr><td>" + stu.name + "</td><td>" + stu.sex + "</td><td>" + stu.id + "</td><td>" + stu.grade + "</td><td>" + stu.subject + "</td></tr>");
   }
-}
-
-function getStudentById(id) {
-  for (var i = 0; i < data.length; i++) {
-    if (id == data[i].id) {
-      return data[i];
-    }
-  }
-  return null;
 }
 
 function delHandler() {
-  var id = $("#dId").val().trim();
-  var stu = getStudentById(id);
-  if (stu == null) {
-    alert("查无此人")
+  var id = $("#dId").val().trim()
+  var data = JSON.parse(storage.getItem("stuSys"));
+  if (data[id] == null) {
+    alert("查无此人");
   } else {
-    data.splice(data.indexOf(stu), 1);
+    data[id] = null;
+    storage["stuSys"] = JSON.stringify(data);
     alert("删除成功");
   }
 }
 
 function eShow() {
-  var id = $("#eId").val().trim();
-  var stu = getStudentById(id);
-  if (stu == null) {
+  var id = $("#eId").val().trim()
+  var data = JSON.parse(storage.getItem("stuSys"));
+  if (data[id] == null) {
     alert("查无此人");
     $(".editForm").hide();
   } else {
@@ -84,65 +79,70 @@ function eShow() {
 
 function editHandler() {
   var id = $("#eId").val().trim();
-  var stu = getStudentById(id);
+  var data = JSON.parse(storage.getItem("stuSys"));
   if ($("#eName").val().trim() != "") {
-    stu.name = $("#eName").val().trim();
-    stu.sex =  $("#eSex").val().trim();
-    stu.grade =  $("#eGrade").val().trim();
-    stu.subject =  $("#eSubject").val().trim();
+    data[id].name = $("#eName").val().trim();
+    data[id].sex =  $("#eSex").val().trim();
+    data[id].grade =  $("#eGrade").val().trim();
+    data[id].subject =  $("#eSubject").val().trim();
+    storage["stuSys"] = JSON.stringify(data);
     alert("修改成功");
   } else {
     alert("姓名不能为空");
   }
 }
 
-function localSave() {
-  $("#saveOutput").empty();
-  for (var i = 0; i < data.length; i++) {
-    $("#saveOutput").append("<tr><td>" + data[i].name + "</td><td>" + data[i].sex + "</td><td>" + data[i].id + "</td><td>" + data[i].grade + "</td><td>" + data[i].subject + "</td></tr>");
-  }
-  storage.clear();
-  for (var i = 0; i < data.length; i++) {
-    storage[data[i].id] = JSON.stringify(data[i]);
+function showAll() {
+  var data = JSON.parse(storage.getItem("stuSys"));
+  var outputer = $("#saveOutput");
+  if (data == null) {
+    outputer.empty();
+  } else {
+    outputer.empty();
+    for (var i in data) {
+      if (data[i] != null) {
+        outputer.append("<tr><td>" + data[i].name + "</td><td>" + data[i].sex + "</td><td>" + data[i].id + "</td><td>" + data[i].grade + "</td><td>" + data[i].subject + "</td></tr>");
+      }
+    }
   }
 }
 
 function addShow() {
-  $(".add").fadeIn("slow");
-  $(".del").hide();
-  $(".search").hide();
-  $(".edit").hide();
-  $(".save").hide();
+  vAdd.fadeIn("slow");
+  vDel.hide();
+  vSearch.hide();
+  vEdit.hide();
+  vSave.hide();
 }
 
 function delShow() {
-  $(".add").hide();
-  $(".del").fadeIn("slow");
-  $(".search").hide();
-  $(".edit").hide();
-  $(".save").hide();
+  vAdd.hide();
+  vDel.fadeIn("slow");
+  vSearch.hide();
+  vEdit.hide();
+  vSave.hide();
 }
 
 function searchShow() {
-  $(".add").hide();
-  $(".del").hide();
-  $(".search").fadeIn("slow");
-  $(".edit").hide();
-  $(".save").hide();
+  vAdd.hide();
+  vDel.hide();
+  vSearch.fadeIn("slow");
+  vEdit.hide();
+  vSave.hide();
 }
 
 function editShow() {
-  $(".add").hide();
-  $(".del").hide();
-  $(".search").hide();
-  $(".edit").fadeIn("slow");
-  $(".save").hide();
+  vAdd.hide();
+  vDel.hide();
+  vSearch.hide();
+  vEdit.fadeIn("slow");
+  vSave.hide();
 }
 
 function saveShow() {
-  $(".add").hide();
-  $(".del").hide();
-  $(".search").hide();
-  $(".edit").hide();
-  $(".save").fadeIn("slow");
+  vAdd.hide();
+  vDel.hide();
+  vSearch.hide();
+  vEdit.hide();
+  vSave.fadeIn("slow");
 }

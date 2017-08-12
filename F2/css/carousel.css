@@ -30,12 +30,12 @@
   width: 20px;
   height: 10px;
   background-color: #fff;
-  opacity: 0.8;
+  opacity: .8;
   margin: 3px;
   cursor: pointer;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  transition: .5s;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; }
@@ -44,11 +44,11 @@
     height: 12px;
     background-color: #dc143c; }
 
-.btn_container #prev {
+.btn_container #btn_prev {
   left: 26%;
   background: url("../image/btn_left.png"); }
 
-.btn_container #next {
+.btn_container #btn_next {
   right: 26%;
   background: url("../image/btn_right.png"); }
 
@@ -61,7 +61,7 @@
   font-size: 16px;
   margin: 4px 2px;
   border: none;
-  opacity: 0.8;
+  opacity: .8;
   background-color: #e7e7e7;
   color: #000;
   cursor: pointer; }

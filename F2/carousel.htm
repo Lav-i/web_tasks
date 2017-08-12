@@ -19,8 +19,8 @@
             </ul>
         </div>
         <div class="btn_container">
-            <button type="button" id="prev"></button>
-            <button type="button" id="next"></button>
+            <button type="button" id="btn_prev"></button>
+            <button type="button" id="btn_next"></button>
         </div>
         <div class="num_container">
             <ul class="num_ul">
@@ -36,6 +36,11 @@
 
     <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
     <script src="js/carousel.js"></script>
+    <script>
+        $(function () {
+            $(".container").carousel("container");
+        });
+    </script>
 </body>
 
 </html>

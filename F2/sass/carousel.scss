@@ -3,9 +3,9 @@ $full: 100%;
 $background: #f7fafc;
 $button-color: #e7e7e7;
 @mixin transition {
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
 }
 @mixin rounded_corners {
   -webkit-border-radius: 5px;
@@ -59,7 +59,7 @@ $button-color: #e7e7e7;
     width: 20px;
     height: 10px;
     background-color: #fff;
-    opacity: .8;
+    opacity: 0.8;
     margin: 3px;
     cursor: pointer;
     @include transition;
@@ -80,7 +80,7 @@ $button-color: #e7e7e7;
   }
 
   #btn_next {
-    right: 18px;
+    right: 17px;
     background: url("../image/btn_right.png");
   }
 
@@ -93,7 +93,7 @@ $button-color: #e7e7e7;
     font-size: 16px;
     margin: 4px 2px;
     border: none;
-    opacity: .8;
+    opacity: 0.8;
     background-color: $button-color;
     color: #000;
     cursor: pointer;

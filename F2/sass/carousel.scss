@@ -15,6 +15,10 @@ $button-color: #e7e7e7;
 
 .container {
   position: relative;
+  width: 840px;
+  height: 640px;
+  margin: 20px auto;
+  overflow: hidden;
   background-color: $background;
 }
 
@@ -37,8 +41,8 @@ $button-color: #e7e7e7;
 }
 
 .img {
-  width: $half;
-  height: $half;
+  width: 800px;
+  height: 600px;
 }
 
 .num_container {
@@ -71,12 +75,12 @@ $button-color: #e7e7e7;
 
 .btn_container {
   #btn_prev {
-    left: 26%;
+    left: 15px;
     background: url("../image/btn_left.png");
   }
 
   #btn_next {
-    right: 26%;
+    right: 18px;
     background: url("../image/btn_right.png");
   }
 

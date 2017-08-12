@@ -1,5 +1,9 @@
 .container {
   position: relative;
+  width: 840px;
+  height: 640px;
+  margin: 20px auto;
+  overflow: hidden;
   background-color: #f7fafc; }
 
 .image_container {
@@ -15,8 +19,8 @@
     list-style: none; }
 
 .img {
-  width: 50%;
-  height: 50%; }
+  width: 800px;
+  height: 600px; }
 
 .num_container {
   position: absolute;
@@ -45,11 +49,11 @@
     background-color: #dc143c; }
 
 .btn_container #btn_prev {
-  left: 26%;
+  left: 15px;
   background: url("../image/btn_left.png"); }
 
 .btn_container #btn_next {
-  right: 26%;
+  right: 18px;
   background: url("../image/btn_right.png"); }
 
 .btn_container button {

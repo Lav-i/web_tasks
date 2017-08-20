@@ -1,0 +1,51 @@
+$length: 300px;
+$half: 150px;
+@mixin rounded_corner {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container {
+  margin: 30px auto;
+}
+
+.mapContainer {
+  width: $length;
+  height: $length;
+
+  #colorMap {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #mapBox {
+    position: absolute;
+    top: $half;
+    left: $half;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-width: 3px;
+    @include rounded_corner;
+  }
+}
+
+.ribbonContainer {
+  margin: auto;
+  width: 25px;
+  height: $length;
+
+  #ribbonBox {
+    position: absolute;
+    display: block;
+    top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 25px;
+    height: 10px;
+    border-style: solid;
+    border-width: 3px;
+  }
+}

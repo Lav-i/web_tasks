@@ -130,6 +130,12 @@ $(function() {
     //获取输入的h值，改变光标在色带上的位置，并重新设置色图
     function hListener() {
       h = Number($("#h").val());
+      if (h > 1) {
+        h = 1;
+      } else if (h < 0) {
+        h = 0;
+      }
+      $("#h").val(h);
       $("#ribbonBox").css("top", h * 300);
       toRGB();
       installCM();
@@ -140,6 +146,12 @@ $(function() {
     //只能重新设置色图
     function sListener() {
       s = Number($("#s").val());
+      if (s > 1) {
+        s = 1;
+      } else if (s < 0) {
+        s = 0;
+      }
+      $("#s").val(s);
       toRGB();
       installCM();
     }
@@ -147,6 +159,12 @@ $(function() {
     //获取输入的l值，重新设置色图光标的位置
     function lListener() {
       l = Number($("#l").val());
+      if (l > 1) {
+        l = 1;
+      } else if (l < 0) {
+        l = 0;
+      }
+      $("#l").val(l);
       mapX = mapY = (1 - l) * 299.768;
       $("#mapBox").css({
         "left": mapX + 10,
@@ -158,6 +176,12 @@ $(function() {
     //获取输入的r值，重新设置色图，并把对应的hsl输出到对应位置
     function rListener() {
       r = Number($("#r").val());
+      if (r >= 255) {
+        r = 255;
+      } else if (r < 0) {
+        r = 0;
+      }
+      $("#r").val(r);
       installCM();
       toHSL(r, g, b);
     }
@@ -165,6 +189,12 @@ $(function() {
     //获取输入的g值，重新设置色图，并把对应的hsl输出到对应位置
     function gListener() {
       g = Number($("#g").val());
+      if (g >= 255) {
+        g = 255;
+      } else if (g < 0) {
+        g = 0;
+      }
+      $("#g").val(g);
       installCM();
       toHSL(r, g, b);
     }
@@ -172,6 +202,12 @@ $(function() {
     //获取输入的b值，重新设置色图，并把对应的hsl输出到对应位置
     function bListener() {
       b = Number($("#b").val());
+      if (b >= 255) {
+        b = 255;
+      } else if (b < 0) {
+        b = 0;
+      }
+      $("#b").val(b);
       installCM();
       toHSL(r, g, b);
     }
